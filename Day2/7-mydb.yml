@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: mysql1
+  name: mysql1
+spec:
+  containers:
+  - env:
+    - name: MYSQL_ROOT_PASSWORD
+      value: mayank1234
+    - name: MYSQL_DATABASE
+      value: mayank
+    - name: MYSQL_USER
+      value: abb
+    - name: MYSQL_PASSWORD
+      value: test@1234
+    image: quay.io/mayank123modi/mysql
+    name: mysql1
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}

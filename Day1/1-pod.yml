@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  name:  mayank
+spec: 
+  containers: 
+  - name: mycontainer
+    image: quay.io/mayank123modi/myapache

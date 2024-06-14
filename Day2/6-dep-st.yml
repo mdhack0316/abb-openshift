@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: strategy
+  name: strategy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: strategy
+  strategy: 
+    type: Recreate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: strategy
+    spec:
+      containers:
+      - image: quay.io/mayank123modi/strategy:v1
+        name: strategy
+        resources: {}
+status: {}

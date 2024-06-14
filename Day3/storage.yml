@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: mayank
+  name: mayank
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mayank
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: mayank
+    spec:
+      volumes:
+      - name: mayankvol
+        persistentVolumeClaim: 
+          claimName: myclaim
+      containers:
+      - image: quay.io/mayank123modi/myhttpd
+        name: myhttpd
+        volumeMounts: 
+        - name: mayankvol
+          mountPath: /usr/local/apache2/htdocs/

@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: jenkins
+  name: jenkins
+spec:
+  containers:
+  - image: jenkins/jenkins:lts
+    name: jenkins
+    readinessProbe:
+      failureThreshold: 12
+      httpGet:
+        path: /login
+        port: 8080
+      initialDelaySeconds: 90
+      periodSeconds: 10
+      successThreshold: 1
+      timeoutSeconds: 5
+    livenessProbe:
+      failureThreshold: 12
+      httpGet:
+        path: /login
+        port: 8080
+      initialDelaySeconds: 90
+      periodSeconds: 10
+      timeoutSeconds: 5
